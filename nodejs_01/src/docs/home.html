@@ -1,0 +1,168 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Node.js API Server Documentation</title>
+    <style>
+      :root {
+        --primary-color: #333;
+        --accent-color: #007bff;
+        --bg-color: #f8f9fa;
+        --card-bg: #ffffff;
+        --text-color: #2d3436;
+        --code-bg: #e9ecef;
+      }
+
+      body {
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        line-height: 1.6;
+        color: var(--text-color);
+        background-color: var(--bg-color);
+        margin: 0;
+        padding: 0;
+      }
+
+      header {
+        background-color: var(--primary-color);
+        color: white;
+        padding: 2rem 1rem;
+        text-align: center;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      }
+
+      .container {
+        max-width: 900px;
+        margin: 2rem auto;
+        padding: 0 20px;
+      }
+
+      .section-title {
+        border-bottom: 2px solid var(--accent-color);
+        display: inline-block;
+        margin-bottom: 1.5rem;
+      }
+
+      .endpoint-card {
+        background: var(--card-bg);
+        border-radius: 8px;
+        padding: 1.5rem;
+        margin-bottom: 1.5rem;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+        transition: transform 0.2s;
+      }
+
+      .endpoint-card:hover {
+        transform: translateY(-2px);
+      }
+
+      .method {
+        font-weight: bold;
+        padding: 4px 10px;
+        border-radius: 4px;
+        text-transform: uppercase;
+        font-size: 0.9rem;
+        margin-right: 10px;
+      }
+
+      .get {
+        background-color: #d1e7dd;
+        color: #0f5132;
+      }
+      .post {
+        background-color: #fff3cd;
+        color: #856404;
+      }
+
+      .url {
+        font-family: "Courier New", Courier, monospace;
+        font-weight: bold;
+        color: var(--accent-color);
+        text-decoration: none;
+      }
+
+      .url:hover {
+        text-decoration: underline;
+      }
+
+      .details {
+        margin-top: 1rem;
+        font-size: 0.95rem;
+      }
+
+      code {
+        background-color: var(--code-bg);
+        padding: 2px 6px;
+        border-radius: 4px;
+      }
+
+      footer {
+        text-align: center;
+        padding: 2rem;
+        font-size: 0.8rem;
+        color: #6c757d;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>API Interface System</h1>
+      <p>
+        Internal documentation and monitoring endpoints for the Node.js
+        microservice.
+      </p>
+    </header>
+
+    <div class="container">
+      <h2 class="section-title">Available Endpoints</h2>
+
+      <div class="endpoint-card">
+        <span class="method post">POST</span>
+        <span class="url">/users</span>
+        <div class="details">
+          <strong>Description:</strong> Register a new user in the system
+          database.<br />
+          <strong>Payload:</strong> Expects a JSON object containing
+          <code>name</code> and <code>email</code>.<br />
+          <strong>Example:</strong>
+          <code
+            >{ "name": "Utsab Adhikari", "email": "contact@utsabadhikari.me"
+            }</code
+          >
+        </div>
+      </div>
+
+      <div class="endpoint-card">
+        <span class="method get">GET</span>
+        <a href="/users" class="url">/users</a>
+        <div class="details">
+          <strong>Description:</strong> Fetches a complete list of all
+          registered users.<br />
+          <strong>Returns:</strong> An array of user objects in JSON format.
+        </div>
+      </div>
+
+      <div class="endpoint-card">
+        <span class="method get">GET</span>
+        <a href="/requests" class="url">/requests</a>
+        <div class="details">
+          <strong>Description:</strong> Provides Handled request logs.<br />
+          <strong>Usage:</strong> Useful for debugging and monitoring request
+          flow through the system.
+        </div>
+      </div>
+
+      <div class="endpoint-card">
+        <span class="method get">GET</span>
+        <a href="/errors" class="url">/errors</a>
+        <div class="details">
+          <strong>Description:</strong> Displays error logs and diagnostics.<br />
+          <strong>Data Tracked:</strong> Includes error messages, stack traces,
+          and timestamps for troubleshooting.
+        </div>
+      </div>
+    </div>
+
+    <footer>Utsab Adhikari &bull; Backend Learning &bull; 2026</footer>
+  </body>
+</html>
