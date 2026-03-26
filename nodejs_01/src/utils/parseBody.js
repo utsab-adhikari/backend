@@ -25,7 +25,6 @@ export const parseBody = (req, maxSize = 1 * 1024 * 1024) => {
           return resolve({});
         }
 
-        // 🧠 Content-Type based parsing
 
         if (contentType.includes("application/json")) {
           return resolve(JSON.parse(rawBody));
@@ -46,7 +45,6 @@ export const parseBody = (req, maxSize = 1 * 1024 * 1024) => {
           return resolve({ text: rawBody });
         }
 
-        // 🔥 fallback (unknown content-type)
         return resolve({ raw: rawBody });
 
       } catch (err) {
