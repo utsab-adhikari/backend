@@ -1,6 +1,7 @@
 import { prisma } from "../db/prisma.js";
 import { Response } from "../middleware/Response.js";
 import { parseBody } from "../utils/parseBody.js";
+import { handleError } from "../utils/errorHandler.js";
 
 export const requestLogController = async (req, res) => {
   try {

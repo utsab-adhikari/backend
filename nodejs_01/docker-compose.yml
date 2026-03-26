@@ -10,12 +10,12 @@ services:
       POSTGRES_PASSWORD: utsab
       POSTGRES_DB: node_01
     ports:
-      - "5432:5432"
+      - "5432:5432"         
     volumes:
       - postgres_data:/var/lib/postgresql/data
 
   app:
-    build: .
+    build: .             
     container_name: node_01
     depends_on:
       - postgres
@@ -25,9 +25,9 @@ services:
       DATABASE_URL: postgresql://utsab:utsab@postgres:5432/node_01
       PORT: 8000
     volumes:
-      - .:/app
-      - /app/node_modules
-    command: sh -c "npx prisma migrate deploy && npm start"
-
+      - .:/app               
+      - /app/node_modules    
+    command: sh -c "npm install && npx prisma generate && npx prisma migrate deploy && npm start"
+    restart: always         
 volumes:
   postgres_data:
